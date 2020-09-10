@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :promos
+  resources :promos do
+    resources :classrooms
+  end
 
 
   devise_for :users, controllers: { registrations: "users/registrations"}

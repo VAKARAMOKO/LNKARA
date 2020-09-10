@@ -1,7 +1,7 @@
 class PromosController < ApplicationController
     before_action :authenticate_user!
-  before_action :set_promo, only: [:show, :edit, :update, :destroy]
-
+    before_action :set_promo, only: [:show, :edit, :update, :destroy]
+    before_action :set_base_breadcrumbs, only: [:show, :new, :edit]
   # GET /promos
   def index
     @promos = current_user.promos
@@ -9,6 +9,7 @@ class PromosController < ApplicationController
 
   # GET /promos/1
   def show
+    add_breadcrumb(@promo.title)
   end
 
   # GET /promos/new
@@ -56,5 +57,9 @@ class PromosController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def promo_params
       params.require(:promo).permit(:title)
+    end
+
+    def set_base_breadcrumbs
+      add_breadcrumb('Proms', promos_path)
     end
 end

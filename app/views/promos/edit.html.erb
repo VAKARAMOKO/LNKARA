@@ -1,6 +1,7 @@
-<h1>Editing Promo</h1>
+
+<h3>
+  Editer la promotion
+  <%= link_to 'View', @promo, class: 'btn btn-outline-primary' %>
+</h3>
 
 <%= render 'form', promo: @promo %>
-
-<%= link_to 'Show', @promo %> |
-<%= link_to 'Back', promos_path %>
