@@ -1,6 +1,4 @@
 
-<p id="notice"><%= notice %></p>
-
 <h3 class='mb-4'>
   <%= @promo.title %>
   <%= link_to 'Edit', edit_promo_path(@promo), class: 'btn btn-outline-primary' %>
@@ -10,7 +8,7 @@
 
 <h5 class='d-flex justify-content-between'>
   <span>classrooms</span>
-  <%= link_to 'New Page', new_promo_classroom_path(@promo), class: 'btn btn-primary' %>
+  <%= link_to 'Créer une Classe', new_promo_classroom_path(@promo), class: 'btn btn-primary' %>
 </h5>
 
 <table class='table'>

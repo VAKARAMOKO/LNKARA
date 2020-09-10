@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :promos do
-    resources :classrooms
+    resources :classrooms do
+      resources :students
+    end
   end
 
 

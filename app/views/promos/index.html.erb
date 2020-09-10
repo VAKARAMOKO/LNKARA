@@ -1,9 +1,6 @@
+<div class="card mt-20">
 
-<%= link_to 'New Promo', new_promo_path %>
-
-
-<p id="notice"><%= notice %></p>
-
+</div>
 <h3 class='d-flex justify-content-between mb-4'>
   <span>Promotions</span>
   <%= link_to 'New Promotion', new_promo_path, class: 'btn btn-primary' %>
@@ -14,6 +11,7 @@
     <div class="col-md-4">
         <div class="card notebook-card mb-3">
           <div class="card-body">
+            <span class="font-bold mr-2">Promotion</span>
             <h5 class='card-title d-flex justify-content-between'>
               <%= link_to promo.title, promo %>
               <div class="dropdown">

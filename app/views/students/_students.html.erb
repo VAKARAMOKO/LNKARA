@@ -1,0 +1,25 @@
+<% classroom = student.classroom %>
+<% promo = classroom.promo %>
+
+<% if student.persisted? %>
+  <div class="p-4" id="checklist-<%= checklist.id %>">
+    <div class="text-content mb-2 p-2">
+      <% if student.name.present? %>
+        <h5 class='m-0'><%= student.name %></h5>
+      <% else %>
+        <h5 class='m-0 text-muted'>Click to add title</h5>
+      <% end %>
+    </div>
+    <div class="form-content d-none mb-2">
+      <%= form_with(model: [promo, classroom, student]) do |form| %>
+        <label>student name</label>
+        <%= form.text_field :title, class: 'form-control' %>
+        <div class="buttons mt-3">
+          <%= form.submit "Save", class: 'btn btn-primary' %>
+          <a href="#" class='cancel btn btn-light'>Cancel</a>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+<% end %>

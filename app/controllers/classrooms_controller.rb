@@ -11,6 +11,7 @@ class ClassroomsController < ApplicationController
   # GET /classrooms/1
   def show
     add_breadcrumb(@classroom.title)
+    @student = @classroom.students.build
   end
 
   # GET /classrooms/new
@@ -27,7 +28,7 @@ class ClassroomsController < ApplicationController
     @classroom = @promo.classrooms.build(classroom_params)
 
     if @classroom.save
-      redirect_to @classroom, notice: 'Classroom was successfully created.'
+      redirect_to promo_classroom_path(@promo, @classroom), notice: 'Classroom was successfully created.'
     else
       render :new
     end

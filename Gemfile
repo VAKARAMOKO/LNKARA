@@ -32,7 +32,8 @@ gem 'best_errors', '~> 0.1.4'
 gem 'tailwindcss', '~> 1.0', '>= 1.0.3'
 #### URL #####
 gem 'friendly_id', '~> 5.4'
-
+gem 'bootstrap_form', '~> 4.5'
+gem 'bootstrap', '~> 5.0.0.alpha1'
 
 
 # Use Active Storage variant
