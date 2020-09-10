@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OFFKARASchool</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= render "layouts/partials/header" %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="bg-gray-200">
+    <div class="">
+
+    <%= yield %>
+    <%= render "layouts/partials/notice" %>
+    </div>
+
+    <%= render "layouts/partials/footer" %>
+  </body>
+</html>
