@@ -1,19 +1,24 @@
-<div class="card mt-20">
+<div class="card mt-40">
 
 </div>
-<h3 class='d-flex justify-content-between mb-4'>
+<h3 class='d-flex justify-content-between m-2'>
   <span>Promotions</span>
-  <%= link_to 'New Promotion', new_promo_path, class: 'btn btn-primary' %>
+  <%= link_to  new_promo_path, class: 'btn btn-outline-primary' do %>
+  <i class="fa fa-plus-circle" aria-hidden="true"></i> Promotion
+  <% end %>
 </h3>
 
 <div class="row">
   <% @promos.each do |promo| %>
     <div class="col-md-4">
-        <div class="card notebook-card mb-3">
+        <div class="card border-dark notebook mb-2">
           <div class="card-body">
-            <span class="font-bold mr-2">Promotion</span>
             <h5 class='card-title d-flex justify-content-between'>
-              <%= link_to promo.title, promo %>
+              <%= link_to promo do %>
+                <button type="button" class="btn bg-gray-300 rounded-r rounded-l">
+                  Promotion <span class="badge badge-light"><%= promo.title %></span>
+                </button>
+              <% end %>
               <div class="dropdown">
                 <button class="btn btn-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-ellipsis-h"></i>
@@ -25,10 +30,12 @@
               </div>
             </h5>
             <div class="stats mb-4">
-              <p class='page-count'>0 classrooms</p>
-              <p class='started'>Started <%= time_ago_in_words(promo.created_at) %> ago</p>
+              <p class='page-count'><%= promo.classrooms.count %> classes</p>
+
             </div>
-            <%= link_to "View", promo, class: 'btn btn-primary' %>
+            <%= link_to  promo, class: 'btn btn-outline-info' do %>
+              <i class="fa fa-plus-circle" aria-hidden="true"></i> Voir Plus
+            <% end %>
           </div>
         </div>
     </div>

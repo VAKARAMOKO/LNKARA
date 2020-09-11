@@ -54,11 +54,11 @@ class ClassroomsController < ApplicationController
 
      # e.g. /promos/5/classrooms
     def set_promo
-      @promo = current_user.promos.find(params[:promo_id])
+      @promo = current_user.promos.friendly.find(params[:promo_id])
     end
 
     def set_classroom
-      @classroom = Classroom.find(params[:id])
+      @classroom = Classroom.friendly.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

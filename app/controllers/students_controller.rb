@@ -48,12 +48,12 @@ class StudentsController < ApplicationController
 
     #refactoring
     def set_promo_and_classroom_path
-      @promo = current_user.promos.find(params[:promo_id])
-      @classroom = current_user.classrooms.find(params[:classroom_id])
+      @promo = current_user.promos.friendly.find(params[:promo_id])
+      @classroom = current_user.classrooms.friendly.find(params[:classroom_id])
     end
 
     def set_student
-      @student = Student.find(params[:id])
+      @student = Student.friendly.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

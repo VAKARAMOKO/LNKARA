@@ -51,7 +51,7 @@ class PromosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_promo
-      @promo = Promo.find(params[:id])
+      @promo = Promo.friendly.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

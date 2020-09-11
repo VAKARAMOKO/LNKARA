@@ -1,0 +1,84 @@
+<% classroom = student.classroom %>
+<% notebook = classroom.notebook %>
+
+<% if student.persisted? %>
+  <div class="p-4" id="checklist-<%= checklist.id %>">
+    <div class="text-content mb-2 p-2">
+      <% if student.title.present? %>
+        <h5 class='m-0'><%= student.title %></h5>
+      <% else %>
+        <h5 class='m-0 text-muted'>Click to add title</h5>
+      <% end %>
+    </div>
+
+    <!-- form student/!-->
+    <div class="form-content d-none mb-2">
+      <%= form_with(model: [notebook, classroom, student]) do |form| %>
+        <label>student title</label>
+        <%= form.text_field :title, class: 'form-control' %>
+        <div class="buttons mt-3">
+          <%= form.submit "Save", class: 'btn btn-primary' %>
+          <a href="#" class='cancel btn btn-light'>Cancel</a>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- scolatiry</!-->
+    <div class="checklist-item-form">
+      <%= form_with(model: [notebook, classroom, student, student.new_item]) do |form| %>
+        <div class="input-group">
+          <%= form.text_field :title, class: 'form-control', placeholder: "Add a new checklist item" %>
+          <div class="input-group-append">
+            <%= form.submit "Save", class: 'btn btn-dark' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- rogress Bar/!-->
+    <div class="checklist-items mt-3">
+      <div class="progress mb-3">
+        <!-- Initiation var/!-->
+        <% percent_complete = student.percent_complete %>
+        <% percent_in_progress = student.percent_in_progress %>
+
+        <div class="progress-bar bg-dark" role="progressbar" style="width: <%= percent_complete %>%" aria-valuenow="<%= percent_complete %>" aria-valuemin="0" aria-valuemax="100"></div>
+
+        <div class="progress-bar bg-primary" role="progressbar" style="width: <%= percent_in_progress %>%" aria-valuenow="<%= percent_in_progress %>" aria-valuemin="0" aria-valuemax="100">
+
+        </div>
+      </div>
+
+      <!-- list students/!-->
+      <ul class='list-group'>
+        <% student.scolarities.each do |checklist_item| %>
+          <% if scolarity.persisted? %>
+            <li class='list-group-item d-flex justify-content-between'>
+              <span><%= scolarity.title %></span>
+              <div>
+                <div class="dropdown float-left mr-4">
+                  <button class="btn btn-sm mr-1 btn-outline-<%= checklist_item.color_class %> dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= scolarity.readable_status %>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <% ChecklistItem::STATUS_OPTIONS.each do |status| %>
+                      <a class="dropdown-item" href="#"
+                      data-reflex="click->ChecklistItemReflex#change_status"
+                      data-id="<%= checklist_item.id %>"
+                      data-status="<%= status[1] %>">
+                        <%= status[0] %>
+                      </a>
+                    <% end %>
+                  </div>
+                </div>
+                <%= link_to notebook_classroom_student_scolarity_path(notebook, classroom, student, scolarity), method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <i class='fas fa-times text-secondary'></i>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
