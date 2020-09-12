@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-  before_action :set_promo_and_classroom_path, only: [:creaete, :update]
+
 
   # GET /students
   def index
@@ -23,14 +23,16 @@ class StudentsController < ApplicationController
 
   # POST /students
   def create
-
+    @promo = current_user.promos.friendly.find(params[:promo_id])
+    @classroom = current_user.classrooms.friendly.find(params[:classroom_id])
     @student = classroom.students.create
     redirect_to promo_classroom_path(promo, classroom)
   end
 
   # PATCH/PUT /students/1
   def update
-
+    @promo = current_user.promos.friendly.find(params[:promo_id])
+    @classroom = current_user.classrooms.friendly.find(params[:classroom_id])
     @student = classroom.students.find(params[:id])
     student.update(student_params)
     redirect_to promo_classroom_path(promo, classroom)
@@ -45,12 +47,6 @@ class StudentsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-
-    #refactoring
-    def set_promo_and_classroom_path
-      @promo = current_user.promos.friendly.find(params[:promo_id])
-      @classroom = current_user.classrooms.friendly.find(params[:classroom_id])
-    end
 
     def set_student
       @student = Student.friendly.find(params[:id])
