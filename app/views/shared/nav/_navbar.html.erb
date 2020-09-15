@@ -11,9 +11,11 @@
 
     </ul>
     <ul class="mt-md-0">
-      <%= link_to destroy_user_session_path, method: :delete, class: "m-links nav-link font-white" do %>
-        <i class="fa fa-power-off" aria-hidden="true"></i> Déconnexion
-      <% end %>
+      <li class="nav-item active">
+        <%= link_to destroy_user_session_path, method: :delete, class: "m-links nav-link" do %>
+          <i class="fa fa-power-off" aria-hidden="true"></i> Déconnexion
+        <% end %>
+      </li>
     </ul>
   </div>
 </nav>

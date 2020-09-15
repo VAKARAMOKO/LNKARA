@@ -1,47 +1,28 @@
 
-<h3 class='mb-4'>
-  <%= @promo.title %>
-  <%= link_to 'Edit', edit_promo_path(@promo), class: 'btn btn-outline-primary' %>
+<h3 class='mb-4 font-bold'>
+  <%= link_to  edit_promo_path(@promo), class: 'btn btn-outline-primary'  do %>
+  La classe <%= @promo.title %>
+  <% end %>
 </h3>
 
 
 
-<h5 class='d-flex justify-content-between'>
-  <span>classrooms</span>
+<h5 class='d-flex justify-content-between m-4'>
+  <span>Les classes</span>
   <%= link_to 'Créer une Classe', new_promo_classroom_path(@promo), class: 'btn btn-primary' %>
 </h5>
 
-<table class='table'>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @promo.classrooms.each do |classroom| %>
-      <tr>
-        <td><%= link_to classroom.title, promo_classroom_path(@promo, classroom) %></td>
-        <td><%= link_to 'Edit', edit_promo_classroom_path(@promo, classroom) %></td>
-        <td><%= link_to 'Destroy', promo_classroom_path(@promo, classroom), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
 <div class="row">
-  <% @promo.classrooms.each do |clasroom| %>
+  <% @promo.classrooms.each do |classroom| %>
     <div class="col-md-4">
         <div class="card border-dark notebook mb-2">
           <div class="card-body">
             <h5 class='card-title d-flex justify-content-between'>
-              <%= link_to  classroom.title, promo_classroom_path(@promo, classroom)%>
+              <%= link_to promo_classroom_path(@promo, classroom) do %>
                 <button type="button" class="btn bg-gray-300 rounded-r rounded-l">
                   La <span class="badge badge-light"><%= classroom.title %></span>
                 </button>
-
+              <% end %>
               <div class="dropdown">
                 <button class="btn btn-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-ellipsis-h"></i>
