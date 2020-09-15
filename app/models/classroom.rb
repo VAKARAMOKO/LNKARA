@@ -2,6 +2,8 @@ class Classroom < ApplicationRecord
   #RELATIONS
   belongs_to :promo
   has_many :students
+  has_many :scolars
+
 
   def elements
     students

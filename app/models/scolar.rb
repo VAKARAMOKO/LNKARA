@@ -1,15 +1,21 @@
-class StudentScolar < ApplicationRecord
+class Scolar < ApplicationRecord
+  #RELATIONS
   belongs_to :student
+  belongs_to :classroom
 
+
+#VALITAIONS
   validates :status, inclusion: { in: ['not-started', 'in-progress', 'complete'] }
   validates_presence_of :status
 
+#CONSTANTES
   STATUS_OPTIONS = [
     ['Not started', 'not-started'],
     ['In progress', 'in-progress'],
     ['Complete', 'complete']
   ]
 
+#METHODS
   def readable_status
     case status
     when 'not-started'
@@ -39,6 +45,4 @@ class StudentScolar < ApplicationRecord
   def in_progress?
     status == 'in-progress'
   end
-
-
 end

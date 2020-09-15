@@ -1,0 +1,28 @@
+
+<%= form_with(model: [promo, classroom, student, scolar]) do |form| %>
+  <% if scolar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(scolar.errors.count, "error") %> prohibited this scolar from being saved:</h2>
+
+      <ul>
+        <% scolar.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="input-group">
+    <%= form.label :total %>
+    <%= form.text_field :total, class: "form-control", placeholder: "Versement" %>
+  </div>
+
+  <div class="input-group">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="input-group-append">
+    <%= form.submit "Valider", class: "btn btn-dark" %>
+  </div>
+<% end %>
