@@ -27,6 +27,7 @@ gem 'devise'
 gem "redis", ">= 4.0", :require => ["redis", "redis/connection/hiredis"]
 gem "hiredis"
 gem "stimulus_reflex", "3.3.0.pre2"
+
 #BEST ERRORS MSG
 gem 'best_errors', '~> 0.1.4'
 gem 'tailwindcss', '~> 1.0', '>= 1.0.3'
@@ -66,3 +67,14 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+
+#links
+#https://guides.rubyonrails.org/active_record_validations.html
+
+
+#feature build with stimuluxreflex
+#http://expo.stimulusreflex.com/
+#search, http://expo.stimulusreflex.com/demos/tabular
+#http://expo.stimulusreflex.com/demos/permalink

@@ -2,7 +2,17 @@ class StudentScolarsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_student_scolar, only: [:update, :destroy]
 
+  # POST /student_scolars
+  def create
+    promo = current_user.promos.friendly.find(params[:promo_id])
+    classroom = promo.classrooms.friendly.find(params[:classroom_id])
+    student = classroom.students.find(params[:student_id])
+    student_scolar = student.student_scolars.new(student_scolar_params)
+    student_scolar.status = "not-started" #Vers Iniatial
+    student_scolar.save
+    redirect_to promo_classroom_path(promo, classroom)
 
+  end
 
   # GET /student_scolars
   def index
@@ -23,18 +33,6 @@ class StudentScolarsController < ApplicationController
   end
 
 
-  # POST /student_scolars
-  def create
-    promo = current_user.promos.friendly.find(params[:promo_id])
-    classroom = promo.classrooms.friendly.find(params[:classroom_id])
-    student = classroom.students.friendly.find(params[:classroom_id])
-    student_scolar = student.student_scolars.friendly.new(student_scolar_params)
-    student_scolar.status = "not-started" #Vers Iniatial
-    student_scolar.save
-    redirect_to promo_classroom_path(promo, classroom)
-
-  end
-
   # PATCH/PUT /student_scolars/1
   def update
     if @student_scolar.update(student_scolar_params)
@@ -50,9 +48,10 @@ class StudentScolarsController < ApplicationController
     promo = current_user.promos.freindly.find(params[:promo_id])
     classroom = promo.classrooms.freindly.find(params[:classroom_id])
     student = classroom.students.freindly.find(params[:student_id])
-    student_scolar = student.student_scolars.freindly.find(params[:id])
+    student_scolar = student.student_scolars.find(params[:id])
     student_scolar.destroy
     redirect_to promo_page_path(promo, page)
+
   end
 
   private

@@ -21,21 +21,22 @@ class StudentsController < ApplicationController
   def edit
   end
 
+
   # POST /students
   def create
-    @promo = current_user.promos.friendly.find(params[:promo_id])
-    @classroom = current_user.classrooms.friendly.find(params[:classroom_id])
-    @student = classroom.students.create
+    promo = current_user.promos.friendly.find(params[:promo_id])
+    classroom = promo.classrooms.friendly.find(params[:classroom_id])
+    student = classroom.students.create
     redirect_to promo_classroom_path(promo, classroom)
   end
 
   # PATCH/PUT /students/1
   def update
-    @promo = current_user.promos.friendly.find(params[:promo_id])
-    @classroom = current_user.classrooms.friendly.find(params[:classroom_id])
-    @student = classroom.students.find(params[:id])
+    promo = current_user.promos.friendly.find(params[:promo_id])
+    classroom = promo.classrooms.friendly.find(params[:classroom_id])
+    student = classroom.students.friendly.find(params[:id])
     student.update(student_params)
-    redirect_to promo_classroom_path(promo, classroom)
+    redirect_to promo_page_path(promo, classroom)
   end
 
   # DELETE /students/1
