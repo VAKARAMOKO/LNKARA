@@ -1,0 +1,27 @@
+
+.logo{
+  text-transform:  uppercase;
+
+}
+
+.logo:hover{
+  text-decoration: none;
+
+}
+
+.m-links{
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  border-bottom: 2px solid transparent;
+}
+
+.m-links i{
+  margin-right: 5px;
+
+}
+.m-links:hover{
+  padding-bottom: 3px;
+  text-decoration: none;
+  color: blue;
+  border-color: blue; /* for underbar*/
+}

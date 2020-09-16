@@ -58,8 +58,6 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    autoprefixer-rails (9.8.6.3)
-      execjs
     bcrypt (3.1.16)
     best_errors (0.1.4)
       better_errors (~> 2.1)
@@ -73,10 +71,6 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.4.8)
       msgpack (~> 1.0)
-    bootstrap (5.0.0.alpha1)
-      autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 1.14.3, < 2)
-      sassc-rails (>= 2.0.0)
     bootstrap_form (4.5.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -104,7 +98,6 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.9.0)
-    execjs (2.7.0)
     ffi (1.13.1)
     friendly_id (5.4.0)
       activerecord (>= 4.0.0)
@@ -134,7 +127,6 @@ GEM
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     pg (1.2.3)
-    popper_js (1.16.0)
     public_suffix (4.0.6)
     puma (4.3.6)
       nio4r (~> 2.0)
@@ -246,7 +238,6 @@ PLATFORMS
 DEPENDENCIES
   best_errors (~> 0.1.4)
   bootsnap (>= 1.4.2)
-  bootstrap (~> 5.0.0.alpha1)
   bootstrap_form (~> 4.5)
   byebug
   capybara (>= 2.15)

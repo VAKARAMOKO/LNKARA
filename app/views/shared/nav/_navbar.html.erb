@@ -1,12 +1,12 @@
-<nav class="navbar navbar-expand-md fixed-top bg-white">
-  <a class="navbar-brand  font-bold " href="/">LNKARA</a>
+<nav class="navbar navbar-expand-md fixed-top bg-white ">
+  <a class="navbar-brand font-bold m-links logo ml-32" href="/">LNKARA</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link font-semibold" href="#">
+        <a class="nav-link font-semibold m-links" href="#">
           <i class="fas fa-house-user"></i> Accueil <span class="sr-only">(current)</span></a>
       </li>
 
@@ -28,7 +28,7 @@
 
       <ul>
       <li class="nav-item active">
-        <%= link_to destroy_user_session_path, method: :delete, class: "m-links nav-link font-bold" do %>
+        <%= link_to destroy_user_session_path, method: :delete, class: "m-links nav-link font-bold mr-32" do %>
           <i class="fa fa-power-off" aria-hidden="true"></i> Déconnexion
         <% end %>
       </li>

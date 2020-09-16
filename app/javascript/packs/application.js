@@ -16,10 +16,11 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-import "../css/application.scss"
+import "../css/application.css"
 import "../stylesheets/application.scss"
 
 import "controllers"
 
-
-import "home"
+$('#myCarousel').carousel({
+    interval: 3000,
+ })

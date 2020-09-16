@@ -22,19 +22,25 @@ gem 'turbolinks', '~> 5'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-
+#MEMEBERSHIPS
 gem 'devise'
+
+#REALTIME
 gem "redis", ">= 4.0", :require => ["redis", "redis/connection/hiredis"]
 gem "hiredis"
 gem "stimulus_reflex", "3.3.0.pre2"
 
 #BEST ERRORS MSG
 gem 'best_errors', '~> 0.1.4'
-gem 'tailwindcss', '~> 1.0', '>= 1.0.3'
+
 #### URL #####
 gem 'friendly_id', '~> 5.4'
+
+#STYLES AND ICONS
+gem 'tailwindcss', '~> 1.0', '>= 1.0.3'
 gem 'bootstrap_form', '~> 4.5'
-gem 'bootstrap', '~> 5.0.0.alpha1'
+#gem 'bootstrap', '~> 4.5', '>= 4.5.2'
+#gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 
 
 # Use Active Storage variant
