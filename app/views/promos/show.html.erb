@@ -1,7 +1,7 @@
 
 <h3 class='mb-4 font-bold'>
   <%= link_to  edit_promo_path(@promo), class: 'btn btn-outline-primary'  do %>
-  La classe <%= @promo.title %>
+    Classes <%= @promo.title %>
   <% end %>
 </h3>
 
@@ -9,18 +9,18 @@
 
 <h5 class='d-flex justify-content-between m-4'>
   <span>Les classes</span>
-  <%= link_to 'Créer une Classe', new_promo_classroom_path(@promo), class: 'btn btn-primary' %>
+  <%= link_to 'Créer une Classe', new_promo_classroom_path(@promo), class: 'btn btn-outline-primary' %>
 </h5>
 
 <div class="row">
   <% @promo.classrooms.each do |classroom| %>
     <div class="col-md-4">
-        <div class="card border-dark notebook mb-2">
+        <div class="card border-dark mb-2">
           <div class="card-body">
             <h5 class='card-title d-flex justify-content-between'>
               <%= link_to promo_classroom_path(@promo, classroom) do %>
                 <button type="button" class="btn bg-gray-300 rounded-r rounded-l">
-                  La <span class="badge badge-light"><%= classroom.title %></span>
+                  <span class="badge badge-light">Classe <%= classroom.title %></span>
                 </button>
               <% end %>
               <div class="dropdown">
@@ -28,7 +28,7 @@
                   <i class="fas fa-ellipsis-h"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                  <%= link_to 'Edit', edit_promo_classroom_path(@promo, classroom), class: 'dropdown-item' %>
+                  <%= link_to 'Editer', edit_promo_classroom_path(@promo, classroom), class: 'dropdown-item' %>
                   <%= link_to 'Delete', promo_classroom_path(@promo, classroom), method: :delete, data: { confirm: 'Are you sure?' }, class: 'dropdown-item' %>
                 </div>
               </div>

@@ -2,15 +2,12 @@
 
 <h3 class='d-flex justify-content-between mb-5'>
     <div>
-      <span class="font-bold">
-
-      </span>
       <%= link_to  edit_promo_classroom_path(@promo, @classroom), class: 'btn btn-outline-primary font-bold' do %>
            Classe <%= @classroom.title %>
       <% end %>
     </div>
   <div class="card">
-    <%= render "student_form" %>
+    <%= render "students/form" %>
   </div>
 </h3>
 

@@ -2,15 +2,11 @@ class ClassroomsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_promo
   before_action :set_classroom, only: [:show, :edit, :update, :destroy]
-  before_action :set_base_breadcrumbs, only: [:show, :new, :edit]
-  # GET /classrooms
-  def index
-    @classrooms = Classroom.all
-  end
+
+
 
   # GET /classrooms/1
   def show
-    add_breadcrumb(@classroom.title)
     @student = @classroom.students.build
   end
 
@@ -58,7 +54,7 @@ class ClassroomsController < ApplicationController
     end
 
     def set_classroom
-      @classroom = Classroom.friendly.find(params[:id])
+      @classroom = @promo.classrooms.friendly.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
@@ -66,8 +62,4 @@ class ClassroomsController < ApplicationController
       params.require(:classroom).permit(:title, :slug, :promo_id)
     end
 
-    def set_base_breadcrumbs
-      add_breadcrumb('Promos', promos_path)
-      add_breadcrumb(@promo.title, promo_path(@promo))
-    end
 end

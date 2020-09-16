@@ -5,9 +5,9 @@ class ScolarsController < ApplicationController
 
   # POST /scolars
   def create
-    promo = current_user.promos.find(params[:promo_id])
-    classroom = promo.classrooms.find(params[:classroom_id])
-    student = classroom.students.find(params[:student_id])
+    promo = current_user.promos.friendly.find(params[:promo_id])
+    classroom = promo.classrooms.friendly.find(params[:classroom_id])
+    student = classroom.students.friendly.find(params[:student_id])
     scolar = student.scolars.new(scolar_params)
     scolar.status = 'not-started'
     scolar.save

@@ -11,7 +11,7 @@
 <div class="row">
   <% @promos.each do |promo| %>
     <div class="col-md-4">
-        <div class="card border-dark notebook mb-2">
+        <div class="card border-dark mb-2">
           <div class="card-body">
             <h5 class='card-title d-flex justify-content-between'>
               <%= link_to promo do %>
@@ -30,7 +30,7 @@
               </div>
             </h5>
             <div class="stats mb-4">
-              <p class='page-count'><%= promo.classrooms.count %> classes</p>
+              <p class='classroom-count'><%= promo.classrooms.count %> classes</p>
 
             </div>
             <%= link_to  promo, class: 'btn btn-outline-info' do %>

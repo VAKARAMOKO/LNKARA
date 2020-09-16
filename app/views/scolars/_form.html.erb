@@ -1,5 +1,5 @@
 
-<%= form_with(model: [promo, classroom, student, scolar]) do |form| %>
+<%= form_with(model: [@promo, @classroom, student, scolar]) do |form| %>
   <% if scolar.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(scolar.errors.count, "error") %> prohibited this scolar from being saved:</h2>

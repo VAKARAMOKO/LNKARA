@@ -1,7 +1,7 @@
 class Scolar < ApplicationRecord
   #RELATIONS
   belongs_to :student
-  belongs_to :classroom
+
 
 
 #VALITAIONS

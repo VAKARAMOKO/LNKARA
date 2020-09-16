@@ -4,6 +4,8 @@ class Student < ApplicationRecord
   belongs_to :classroom
   has_many :scolars
 
+
+
   def new_scolar
     scolars.build
   end

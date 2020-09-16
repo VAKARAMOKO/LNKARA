@@ -1,7 +1,7 @@
 class PromosController < ApplicationController
     before_action :authenticate_user!
     before_action :set_promo, only: [:show, :edit, :update, :destroy]
-    before_action :set_base_breadcrumbs, only: [:show, :new, :edit]
+
   # GET /promos
   def index
     @promos = current_user.promos
@@ -9,12 +9,12 @@ class PromosController < ApplicationController
 
   # GET /promos/1
   def show
-    add_breadcrumb(@promo.title)
+
   end
 
   # GET /promos/new
   def new
-    @promo = current_user.promos.build
+    @promo = Promo.new
   end
 
   # GET /promos/1/edit
@@ -51,15 +51,11 @@ class PromosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_promo
-      @promo = Promo.friendly.find(params[:id])
+      @promo = current_user.promos.friendly.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def promo_params
       params.require(:promo).permit(:title)
-    end
-
-    def set_base_breadcrumbs
-      add_breadcrumb('Proms', promos_path)
     end
 end

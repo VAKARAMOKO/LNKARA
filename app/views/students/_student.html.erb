@@ -9,60 +9,7 @@
       <%= render "students/form" %>
     </div>
 
-    <!-- scolarity form/!-->
-    <div class="checklist-item-form">
-      <%= render "scolars/form" %>
-    </div>
 
-    <div class="checklist-items mt-3">
-      <!-- progress bar section/!-->
-      <div class="progress mb-3">
-        <% percent_complete = student.percent_complete %>
-        <% percent_in_progress = student.percent_in_progress %>
-
-        <!-- progress bar 100%/!-->
-        <div class="progress-bar bg-dark" role="progressbar" style="width: <%= percent_complete %>%" aria-valuenow="<%= percent_complete %>" aria-valuemin="0" aria-valuemax="100"></div>
-
-        <!-- progress bar not 100%/!-->
-        <div class="progress-bar bg-primary" role="progressbar" style="width: <%= percent_in_progress %>%" aria-valuenow="<%= percent_in_progress %>" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-
-      <!--list checklist_item/!-->
-      <ul class='list-group'>
-
-        <!-- loop to print checklist_item/!-->
-        <% checklist.scolars.each do |scolar| %>
-          <% if scolar.persisted? %>
-            <li class='list-group-item d-flex justify-content-between'>
-              <span><%= scolar.title %></span>
-              <div>
-                <div class="dropdown float-left mr-4">
-                  <!-- Options/!-->
-                  <button class="btn btn-sm mr-1 btn-outline-<%= scolar.color_class %> dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <%= scolar.readable_status %>
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <% StudentScolar::STATUS_OPTIONS.each do |status| %>
-                      <a class="dropdown-scolar" href="#"
-                      data-reflex="click->StudentScolarReflex#change_status"
-                      data-id="<%= scolar.id %>"
-                      data-status="<%= status[1] %>">
-                        <%= status[0] %>
-                      </a>
-                    <% end %>
-                  </div>
-                </div>
-
-                <!-- delete option/!-->
-                <%= link_to promo_classroom_student_scolar_path(promo, classroom, student, scolar), method: :delete, data: { confirm: "Are you sure?" } do %>
-                  <i class='fas fa-times text-secondary'></i>
-                <% end %>
-              </div>
-            </li>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
 
   </div>
 <% end %>
