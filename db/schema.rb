@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_15_163734) do
+ActiveRecord::Schema.define(version: 2020_09_10_173654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,15 +45,6 @@ ActiveRecord::Schema.define(version: 2020_09_15_163734) do
     t.index ["user_id"], name: "index_promos_on_user_id"
   end
 
-  create_table "scolars", force: :cascade do |t|
-    t.string "total"
-    t.string "status"
-    t.bigint "student_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["student_id"], name: "index_scolars_on_student_id"
-  end
-
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.string "contact"
@@ -62,7 +53,6 @@ ActiveRecord::Schema.define(version: 2020_09_15_163734) do
     t.bigint "classroom_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "slug"
     t.index ["classroom_id"], name: "index_students_on_classroom_id"
   end
 
@@ -89,6 +79,5 @@ ActiveRecord::Schema.define(version: 2020_09_15_163734) do
 
   add_foreign_key "classrooms", "promos"
   add_foreign_key "promos", "users"
-  add_foreign_key "scolars", "students"
   add_foreign_key "students", "classrooms"
 end

@@ -6,8 +6,15 @@
            Classe <%= @classroom.title %>
       <% end %>
     </div>
-  <div class="card">
-    <%= render "students/form" %>
+  <div class="card m-2">
+      <%= form_with(model: [@promo, @classroom, @student], html: { class: " form-inline float-left"}) do |form| %>
+
+    <div class="actions">
+      <%= form.submit "Add student", class: 'btn btn-outline-primary' %>
+    </div>
+  <% end %>
+
+
   </div>
 </h3>
 

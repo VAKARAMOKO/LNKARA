@@ -1,2 +1,0 @@
-module ScolarsHelper
-end

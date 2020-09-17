@@ -28,7 +28,9 @@ gem 'devise'
 #REALTIME
 gem "redis", ">= 4.0", :require => ["redis", "redis/connection/hiredis"]
 gem "hiredis"
-gem "stimulus_reflex", "3.3.0.pre2"
+
+#gem "view_component"
+
 
 #BEST ERRORS MSG
 gem 'best_errors', '~> 0.1.4'
@@ -84,3 +86,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #http://expo.stimulusreflex.com/
 #search, http://expo.stimulusreflex.com/demos/tabular
 #http://expo.stimulusreflex.com/demos/permalink
+
+gem "stimulus_reflex", "~> 3.2"
