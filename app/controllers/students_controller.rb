@@ -1,16 +1,9 @@
 class StudentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_classroom
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
 
-  # GET /students
-  def index
-    @students = Student.all
-  end
-
-  # GET /students/1
-  def show
-  end
 
   # GET /students/new
   def new
@@ -21,23 +14,24 @@ class StudentsController < ApplicationController
   def edit
   end
 
-
   # POST /students
   def create
+    @student = @classroom.students.build(student_params)
 
-    promo = current_user.promos.friendly.find(params[:promo_id])
-    classroom = promo.classrooms.friendly.find(params[:classroom_id])
-    student = classroom.students.create
-    redirect_to promo_classroom_path(promo, classroom)
+    if @student.save
+      redirect_to classroom_student_path(@classroom, @student), notice: 'Vous avez inscrire.'
+    else
+      render :new
+    end
   end
 
   # PATCH/PUT /students/1
   def update
-    promo = current_user.promos.friendly.find(params[:promo_id])
-    classroom = promo.classrooms.friendly.find(params[:classroom_id])
-    student = classroom.students.friendly.find(params[:id])
-    student.update(student_params)
-    redirect_to promo_page_path(promo, classroom)
+    if @student.update(student_params)
+      redirect_to classroom_student_path(@classroom, @student), notice: 'Student was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   # DELETE /students/1
@@ -46,12 +40,16 @@ class StudentsController < ApplicationController
     redirect_to students_url, notice: 'Student was successfully destroyed.'
   end
 
-
   private
     # Use callbacks to share common setup or constraints between actions.
 
+     #classroom
+     def set_classroom
+       @classroom = classroom.friendly.find(params[:classroom])
+     end
+
     def set_student
-      @student = Student.friendly.find(params[:id])
+      @student = Student.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

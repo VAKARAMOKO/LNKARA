@@ -19,6 +19,7 @@ class StudentsTest < ApplicationSystemTestCase
     fill_in "Mat nat", with: @student.mat_nat
     fill_in "Mat school", with: @student.mat_school
     fill_in "Name", with: @student.name
+    fill_in "Slug", with: @student.slug
     click_on "Create Student"
 
     assert_text "Student was successfully created"
@@ -34,6 +35,7 @@ class StudentsTest < ApplicationSystemTestCase
     fill_in "Mat nat", with: @student.mat_nat
     fill_in "Mat school", with: @student.mat_school
     fill_in "Name", with: @student.name
+    fill_in "Slug", with: @student.slug
     click_on "Update Student"
 
     assert_text "Student was successfully updated"

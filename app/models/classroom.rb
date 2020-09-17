@@ -4,10 +4,6 @@ class Classroom < ApplicationRecord
   has_many :students
 
 
-  def elements
-    students
-  end
-
   #slug
   extend FriendlyId
     friendly_id :title, use: :slugged

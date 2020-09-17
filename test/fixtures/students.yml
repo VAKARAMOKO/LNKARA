@@ -5,6 +5,7 @@ one:
   contact: MyString
   mat_nat: MyString
   mat_school: MyString
+  slug: MyString
   classroom: one
 
 two:
@@ -12,4 +13,5 @@ two:
   contact: MyString
   mat_nat: MyString
   mat_school: MyString
+  slug: MyString
   classroom: two
