@@ -1,7 +1,7 @@
 class Classroom < ApplicationRecord
   #RELATIONS
   belongs_to :promo
-  has_many :students
+  has_many :students, dependent: :destroy
 
 
   #slug

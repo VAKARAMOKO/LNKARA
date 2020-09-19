@@ -1,47 +1,34 @@
-<%= form_with(model: student, local: true) do |form| %>
-  <% if student.errors.any? %>
+<%= form_with(model: [@promo, @classroom, @student], local: true, html: { class: 'float-left form-inline m-2' }) do |form| %>
+  <% if @student.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
 
       <ul>
-        <% student.errors.full_messages.each do |message| %>
+        <% @student.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="form-group mr-1">
+   <%= form.text_field :name, class: "form-control", placeholder:"Koffi Mariam" %>
   </div>
 
-  <div class="field">
-    <%= form.label :contact %>
-    <%= form.text_field :contact %>
+  <div class="form-group mr-1">
+   <%= form.text_field :contact, class:"form-control", placeholder:"Ex: 44320020" %>
   </div>
 
-  <div class="field">
-    <%= form.label :mat_nat %>
-    <%= form.text_field :mat_nat %>
+  <div class="form-group mr-1">
+    <%= form.text_field :mat_nat , class: "form-control" , placeholder:" Ex: 07 134 330R"%>
   </div>
 
-  <div class="field">
-    <%= form.label :mat_school %>
-    <%= form.text_field :mat_school %>
+  <div class="field mr-2">
+    <%= form.text_field :mat_school , class: "form-control" , placeholder: "Ex: 604" %>
   </div>
 
-  <div class="field">
-    <%= form.label :slug %>
-    <%= form.text_field :slug %>
-  </div>
-
-  <div class="field">
-    <%= form.label :classroom_id %>
-    <%= form.text_field :classroom_id %>
-  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Inscris", class: "btn btn-outline-primary" %>
   </div>
 <% end %>

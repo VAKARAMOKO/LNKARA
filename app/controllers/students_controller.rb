@@ -3,7 +3,13 @@ class StudentsController < ApplicationController
   before_action :set_classroom
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @students = Student.all
+  end
 
+  def show
+
+  end
 
   # GET /students/new
   def new
@@ -14,12 +20,21 @@ class StudentsController < ApplicationController
   def edit
   end
 
+  def create
+    notebook = current_user.notebooks.find(params[:notebook_id])
+    page = notebook.pages.find(params[:page_id])
+    checklist = page.checklists.create
+    redirect_to notebook_page_path(notebook, page)
+  end
+
   # POST /students
   def create
-    @student = @classroom.students.build(student_params)
+    promo = current_user.promos.friendly.find(params[:promo_id])
+    classroom = promo.classrooms.friendly.find(params[:classroom_id])
+    student = classroom.students.create
 
-    if @student.save
-      redirect_to classroom_student_path(@classroom, @student), notice: 'Vous avez inscrire.'
+    if student.save
+      redirect_to classroom_student_path(classroom, student), notice: 'Vous avez inscrire.'
     else
       render :new
     end
