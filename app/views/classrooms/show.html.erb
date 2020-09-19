@@ -1,15 +1,32 @@
 
-<h3 class='d-flex justify-content-between mb-5 mt-24'>
+<h3 class='d-flex justify-content-between mb-5 mt-12'>
     <div>
       <%= link_to  edit_promo_classroom_path(@promo, @classroom), class: 'btn btn-outline-primary font-bold' do %>
            Classe <%= @classroom.title %>
       <% end %>
     </div>
-  <div class="card m-2">
-    <p class="font-bold m-2">Inscrire Un Eleve</p>
+  <div class="card d-flex justify-content-between m-2">
+    <p class="font-bold m-2">Inscrire dans la classe <%= @classroom.title %></p>
     <%= render "students/form" %>
   </div>
+
 </h3>
+<hr>
+  <div class="card">
+    <p>You only get what’s left after your employees and creditors are paid—which is not much anyway, unless your business takes off within six months—which is rare.</p>
+
+    <hr>
+    <p>First off, your sleep is important if you want to succeed in life. Second, you don’t get much of it because you’re always leaving the office late, sleeping late, and waking up early.</p>
+    <hr>
+    <p>If your sleep is important, then forget entrepreneurship. You’d be better off getting a job.</p>
+    <hr><p>You only get what’s left after your employees and creditors are paid—which is not much anyway, unless your business takes off within six months—which is rare.</p>
+
+    <hr>
+    <p>First off, your sleep is important if you want to succeed in life. Second, you don’t get much of it because you’re always leaving the office late, sleeping late, and waking up early.</p>
+    <hr>
+    <p>If your sleep is important, then forget entrepreneurship. You’d be better off getting a job.</p>
+
+  </div>
 
 
 

@@ -20,13 +20,6 @@ class StudentsController < ApplicationController
   def edit
   end
 
-  def create
-    notebook = current_user.notebooks.find(params[:notebook_id])
-    page = notebook.pages.find(params[:page_id])
-    checklist = page.checklists.create
-    redirect_to notebook_page_path(notebook, page)
-  end
-
   # POST /students
   def create
     promo = current_user.promos.friendly.find(params[:promo_id])
@@ -60,7 +53,7 @@ class StudentsController < ApplicationController
 
      #classroom
      def set_classroom
-       @classroom = classroom.friendly.find(params[:classroom])
+       @classroom = classrooms.friendly.find(params[:classroom])
      end
 
     def set_student
