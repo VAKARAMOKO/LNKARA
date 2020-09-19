@@ -22,7 +22,7 @@ class StudentsController < ApplicationController
 
   # POST /students
   def create
-    promo = current_user.promos.friendly.find(params[:promo_id])
+    @student = @classroom.students.find(params[:])
     classroom = promo.classrooms.friendly.find(params[:classroom_id])
     student = classroom.students.create
 
