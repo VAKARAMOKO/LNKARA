@@ -3,6 +3,10 @@ class Classroom < ApplicationRecord
   belongs_to :promo
   has_many :students, dependent: :destroy
 
+  #student_features
+  def elements
+    students
+  end
 
   #slug
   extend FriendlyId

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
 
-  resources :promos do
-    resources :classrooms do
-      resources :students
+  resources :promos do          #notebooks
+    resources :classrooms do    #pages
+      resources :students       #checklists
 
     end
   end

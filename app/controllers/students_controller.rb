@@ -22,12 +22,11 @@ class StudentsController < ApplicationController
 
   # POST /students
   def create
-    @student = @classroom.students.find(params[:])
-    classroom = promo.classrooms.friendly.find(params[:classroom_id])
-    student = classroom.students.create
+    @classroom = @promo.classrooms.build(classroom_params)
+    @student = @classroom.students.build(student_params)
 
     if student.save
-      redirect_to classroom_student_path(classroom, student), notice: 'Vous avez inscrire.'
+      redirect_to classroom_student_path(@classroom, @student), notice: 'Vous avez inscrire.'
     else
       render :new
     end
@@ -53,7 +52,7 @@ class StudentsController < ApplicationController
 
      #classroom
      def set_classroom
-       @classroom = classrooms.friendly.find(params[:classroom])
+       @classroom = classroom.friendly.find(params[:classroom_id])
      end
 
     def set_student
