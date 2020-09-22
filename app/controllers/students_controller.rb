@@ -4,7 +4,7 @@ class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   def index
-    @students = Student.all
+    @students = Student.all.order('created_at ASC')
   end
 
   def show
@@ -22,14 +22,11 @@ class StudentsController < ApplicationController
 
   # POST /students
   def create
-    @classroom = @promo.classrooms.build(classroom_params)
-    @student = @classroom.students.build(student_params)
+    promo = current_user.promos.friendly.find(params[:promo_id])
+    classroom = promo.classrooms.friendly.find(params[:classroom_id])
+    student = classroom.students.create(student_params)
+    redirect_to promo_classroom_path(promo, classroom)
 
-    if student.save
-      redirect_to classroom_student_path(@classroom, @student), notice: 'Vous avez inscrire.'
-    else
-      render :new
-    end
   end
 
   # PATCH/PUT /students/1
@@ -52,7 +49,7 @@ class StudentsController < ApplicationController
 
      #classroom
      def set_classroom
-       @classroom = classroom.friendly.find(params[:classroom_id])
+       @classroom = Classroom.friendly.find(params[:classroom_id])
      end
 
     def set_student

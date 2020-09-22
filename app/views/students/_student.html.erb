@@ -1,0 +1,19 @@
+<% classroom = student.classroom %>
+<% promo = classroom.promo %>
+
+<% if student.persisted? %>
+  <div class="p-1" id="student-<%= student.id %>">
+
+    <!-- Show student list /!-->
+    <div class="">
+      <% if student.name.present? %>
+      <!-- show list record /!-->
+        <div class="bg-gray-200">
+        <%= student.name %>
+        </div>
+      <% else %>
+        <h5 class='m-0 text-muted'>Student Not record on DB. </h5>
+      <% end %>
+    </div>
+  </div>
+<% end %>
