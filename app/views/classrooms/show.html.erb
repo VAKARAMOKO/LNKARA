@@ -1,27 +1,28 @@
 
-
-<h3 class='d-flex justify-content-between mb-5'>
+<h3 class='d-flex justify-content-between mb-5 mt-12'>
+  <%= link_to 'Back', promo_classroom_path(@promo, @classroom), class: 'btn btn-secondary mb-3' %>
     <div>
       <%= link_to  edit_promo_classroom_path(@promo, @classroom), class: 'btn btn-outline-primary font-bold' do %>
            Classe <%= @classroom.title %>
       <% end %>
     </div>
-  <div class="card m-2">
-      <%= form_with(model: [@promo, @classroom, @student], html: { class: " form-inline float-left"}) do |form| %>
 
-    <div class="actions">
-      <%= form.submit "Add student", class: 'btn btn-outline-primary' %>
-    </div>
-  <% end %>
-
+  <div class="card d-flex justify-content-between m-2">
+    <p class="font-bold m-2">Inscription dans la classe <%= @classroom.title %></p>
+    <%= render "student_form" %>
 
   </div>
+
 </h3>
+<hr>
+  <div class="card">
+    <div class="m-2">
+      <%= render @classroom.elements %>
+    </div>
+  </div>
 
 
-<!-- feed student scolar/!-->
-<div class="col-lg-10 offset-lg-1">
-  <%= render @classroom.elements %>
-</div>
+
+
 
 

@@ -1,20 +1,22 @@
-<nav class="navbar navbar-expand-md fixed-top bg-white ">
+
+<nav class="navbar navbar-expand-md fixed-top bg-white">
   <a class="navbar-brand font-bold m-links logo ml-32" href="/">LNKARA</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <% if user_signed_in? %>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link font-semibold m-links" href="#">
+        <a class="nav-link font-semibold m-links" href="/">
           <i class="fas fa-house-user"></i> Accueil <span class="sr-only">(current)</span></a>
       </li>
 
     </ul>
     <ul class="mt-md-0">
       <li class="nav-item active">
-        <%= link_to root_path, class: "m-links nav-link font-bold" do %>
-          <i class="fas fa-user-circle"></i> Vous
+        <%= link_to edit_user_registration_path, class: "m-links nav-link font-bold" do %>
+         <i class="rounded-full h-6 w-6 flex items-center justify-center bg-gray-400">V</i>
         <% end %>
       </li>
     </ul>
@@ -34,4 +36,6 @@
       </li>
     </ul>
   </div>
+  <% end %>
 </nav>
+  <p class="bg-blue-600 h-1 -mt-4 -m-6"></p>

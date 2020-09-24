@@ -2,125 +2,17 @@
 <% promo = classroom.promo %>
 
 <% if student.persisted? %>
-  <div class="p-4" id="student-<%= student.id %>">
-    <!-- Msg Title checklist /!-->
-    <div class="text-content mb-2 p-2">
-      <% if student.name.present? %>
-        <h5 class='m-0'><%= student.name %></h5>
-      <% else %>
-        <h5 class='m-0 text-muted'>Click to add title</h5>
-      <% end %>
-    </div>
 
-        <!-- checklist form/!-->
+<div class="student_items mt-2">
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between hover:bg-gray-100">
+     <div class="font-semibold">
+      <span class=" ml-8 badge badge-pill badge-primary"> Primary</span> <%= student.name %>
 
-    <div class="form-content d-none mb-2">
-      <%= form_with(model: [promo, classroom, student]) do |form| %>
-        <label>Student title</label>
-        <%= form.text_field :name, class: 'form-control' %>
-        <div class="buttons mt-3">
-          <%= form.submit "Ajoute checklist", class: 'btn btn-primary' %>
-          <a href="#" class='cancel btn btn-light'>Annuler</a>
-        </div>
-      <% end %>
-    </div>
-
-
-    <!-- student form/!-->
-    <div class="form-content d-none mb-2">
-    <!-- checklist_item fomr/!-->
-
-    <div class="checklist-item-form">
-      <%= form_with(model: [promo, classroom, student, student.new_scolar]) do |form| %>
-        <div class="input-group">
-          <%= form.text_field :total, class: 'form-control', placeholder: "total versement" %>
-          <div class="input-group-append">
-            <%= form.submit "Save Scolar", class: 'btn btn-dark' %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-
-
-    <div class="checklist-items mt-3">
-      <!-- progress bar section/!-->
-      <div class="progress mb-3">
-        <% percent_complete = checklist.percent_complete %>
-        <% percent_in_progress = checklist.percent_in_progress %>
-
-        <!-- progress bar 100%/!-->
-        <div class="progress-bar bg-dark" role="progressbar" style="width: <%= percent_complete %>%" aria-valuenow="<%= percent_complete %>" aria-valuemin="0" aria-valuemax="100"></div>
-
-        <!-- progress bar not 100%/!-->
-        <div class="progress-bar bg-primary" role="progressbar" style="width: <%= percent_in_progress %>%" aria-valuenow="<%= percent_in_progress %>" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-
-      <!--list checklist_item/!-->
-      <ul class='list-group'>
-
-
-  <!-- loop to print checklist_item/!-->
-        <% classroom.scolars.each do |scolar| %>
-          <% if scolar.persisted? %>
-            <li class='list-group-item d-flex justify-content-between'>
-              <span><%= scolar.title %></span>
-              <div>
-                <div class="dropdown float-left mr-4">
-                  <!-- Options/!-->
-                  <button class="btn btn-sm mr-1 btn-outline-<%= scolar.color_class %> dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <%= scolar.readable_status %>
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <% ScolarItem::STATUS_OPTIONS.each do |status| %>
-                      <a class="dropdown-item" href="#"
-                      data-reflex="click->ScolarItemReflex#change_status"
-                      data-id="<%= scolar.id %>"
-                      data-status="<%= status[1] %>">
-                        <%= status[0] %>
-                      </a>
-                    <% end %>
-                  </div>
-                </div>
-
-                <!-- delete option/!-->
-                <%= link_to promo_page_classroom_scolar_path(promo, page, classroom, scolar), method: :delete, data: { confirm: "Are you sure?" } do %>
-                  <i class='fas fa-times text-secondary'></i>
-                <% end %>
-              </div>
-            </li>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
-
-
-  </div>
-<% end %>
-
-
-
-
-
-
-    <div class="checklist-items mt-3">
-      <!-- progress bar section/!-->
-      <div class="progress mb-3">
-        <% percent_complete = checklist.percent_complete %>
-        <% percent_in_progress = checklist.percent_in_progress %>
-
-        <!-- progress bar 100%/!-->
-        <div class="progress-bar bg-dark" role="progressbar" style="width: <%= percent_complete %>%" aria-valuenow="<%= percent_complete %>" aria-valuemin="0" aria-valuemax="100"></div>
-
-        <!-- progress bar not 100%/!-->
-        <div class="progress-bar bg-primary" role="progressbar" style="width: <%= percent_in_progress %>%" aria-valuenow="<%= percent_in_progress %>" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-
-      <!--list checklist_item/!-->
-      <ul class='list-group'>
-
-
-      </ul>
-    </div>
-
-  </div>
+     </div>
+      <span type="button" class="btn btn-secondary btn-sm">Versement</span>
+      <span type="button" class="btn btn-dark btn-sm">Notes</span>
+    </li>
+  </ul>
+</div>
 <% end %>
