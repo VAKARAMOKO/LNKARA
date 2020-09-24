@@ -2,18 +2,16 @@
 <% promo = classroom.promo %>
 
 <% if student.persisted? %>
-  <div class="p-1" id="student-<%= student.id %>">
+<div class="student_items mt-2">
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between hover:bg-gray-100">
+     <div class="font-semibold">
+      <span class=" ml-8 badge badge-pill badge-primary"> Primary</span> <%= student.name %>
 
-    <!-- Show student list /!-->
-    <div class="">
-      <% if student.name.present? %>
-      <!-- show list record /!-->
-        <div class="bg-gray-200">
-        <%= student.name %>
-        </div>
-      <% else %>
-        <h5 class='m-0 text-muted'>Student Not record on DB. </h5>
-      <% end %>
-    </div>
-  </div>
+     </div>
+      <button type="button" class="btn btn-secondary">Versement</button>
+      <button type="button" class="btn btn-dark">Notes</button>
+    </li>
+  </ul>
+</div>
 <% end %>

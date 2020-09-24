@@ -1,5 +1,6 @@
 <div class="card mt-32"></div>
 <h3 class='mb-4 font-bold'>
+  <%= link_to 'Back', promos_path, class: 'btn btn-secondary mb-3' %>
   <%= link_to  edit_promo_path(@promo), class: 'btn btn-outline-primary'  do %>
     Classes <%= @promo.title %>
   <% end %>
