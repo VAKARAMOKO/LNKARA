@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :student_invoices
   resources :promos do          #notebooks
     resources :classrooms do    #pages
       resources :students       #checklists

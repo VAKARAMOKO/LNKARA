@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Student Invoices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Solde</th>
+      <th>Operation</th>
+      <th>Invoice</th>
+      <th>Status</th>
+      <th>Student</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @student_invoices.each do |student_invoice| %>
+      <tr>
+        <td><%= student_invoice.solde %></td>
+        <td><%= student_invoice.operation %></td>
+        <td><%= student_invoice.invoice %></td>
+        <td><%= student_invoice.status %></td>
+        <td><%= student_invoice.student_id %></td>
+        <td><%= link_to 'Show', student_invoice %></td>
+        <td><%= link_to 'Edit', edit_student_invoice_path(student_invoice) %></td>
+        <td><%= link_to 'Destroy', student_invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Student Invoice', new_student_invoice_path %>

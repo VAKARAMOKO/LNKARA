@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Solde:</strong>
+  <%= @student_invoice.solde %>
+</p>
+
+<p>
+  <strong>Operation:</strong>
+  <%= @student_invoice.operation %>
+</p>
+
+<p>
+  <strong>Invoice:</strong>
+  <%= @student_invoice.invoice %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @student_invoice.status %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @student_invoice.student_id %>
+</p>
+
+<%= link_to 'Edit', edit_student_invoice_path(@student_invoice) %> |
+<%= link_to 'Back', student_invoices_path %>
