@@ -6,11 +6,26 @@
 <div class="student_items mt-2">
   <ul class="list-group">
     <li class="list-group-item d-flex justify-content-between hover:bg-gray-100">
+      <!-- status + nom de eleves/!-->
      <div class="font-semibold">
-      <span class=" ml-8 badge badge-pill badge-primary"> Primary</span> <%= student.name %>
+      <span class=" ml-8 badge badge-pill badge-primary"> Primary</span>
+       <span class="font-bold"><%= student.name %></span>
+     </div>
+
+     <!-- versement+ reçu numerique/!-->
+     <div class="versement justify-content-between bg-gray-200">
+       <span class="total">30.000</span>
+       <span class="recu">reçu</span>
+     </div>
+     <!-- Operations de payment + status/!-->
+     <!--dropdown/!-->
+     <div class="operations">
+       <span class="form-operation">
+         champ versement
+       </span>
+       <!-- radiobutton status/!-->
 
      </div>
-      <span type="button" class="btn btn-secondary btn-sm">Versement</span>
       <span type="button" class="btn btn-dark btn-sm">Notes</span>
     </li>
   </ul>

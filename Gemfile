@@ -28,14 +28,23 @@ gem 'devise'
 #REALTIME
 gem "redis", ">= 4.0", :require => ["redis", "redis/connection/hiredis"]
 gem "hiredis"
+gem "stimulus_reflex", "~> 3.2"
 
+#PAGES
 #gem "view_component"
+#gem 'react-rails', '~> 2.6', '>= 2.6.1'
+#gem 'vuejs-rails', '~> 2.5', '>= 2.5.13'
+
+#INVOICES PDF
+#gem 'prawn', '~> 2.3'
+#gem 'wicked_pdf', '~> 2.1'
+
 
 
 #BEST ERRORS MSG
 gem 'best_errors', '~> 0.1.4'
 
-#### URL #####
+#### URL builder #####
 gem 'friendly_id', '~> 5.4'
 
 #STYLES AND ICONS
@@ -76,6 +85,12 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+  ##########################################################
+  #                                                         #
+  #  DOCUMENTATIONS AND IMPORTANTS LINKS                    #
+  #                                                         #
+  ##########################################################
+
 
 
 #links
@@ -87,4 +102,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #search, http://expo.stimulusreflex.com/demos/tabular
 #http://expo.stimulusreflex.com/demos/permalink
 
-gem "stimulus_reflex", "~> 3.2"
