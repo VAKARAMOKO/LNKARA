@@ -1,6 +1,25 @@
 class Student < ApplicationRecord
   belongs_to :classroom
+  has_many :students, class_name: "student", foreign_key: "reference_id"
 
+
+  def new_invoice
+    student_invoices.build
+  end
+
+  def percent_complete
+    return 0 if total_items == 0
+    ((student_invoices.select(&:complete?).count.to_f / total_items) * 100).round
+  end
+
+  def percent_in_progress
+    return 0 if total_items == 0
+    ((student_invoices.select(&:in_progress?).count.to_f / total_items) * 100).round
+  end
+
+  def total_items
+    @total_items ||= student_invoices.count
+  end
 
   #SLUG
   extend FriendlyId
@@ -10,3 +29,5 @@ class Student < ApplicationRecord
       name_changed?
   end
 end
+
+

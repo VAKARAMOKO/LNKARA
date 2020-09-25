@@ -1,0 +1,38 @@
+<ul class='list-group'>
+        <!-- loop to print checklist_item/!-->
+        <% student.student_invoices.each do |student_invoice| %>
+          <% if checklist_item.persisted? %>
+            <li class='list-group-item d-flex justify-content-between'>
+              <span><%= student_invoice.title %></span>
+              <span>STATUS</span>
+              <span>OPERATION</span>
+              <div>
+                <div class="dropdown float-left mr-4">
+                  <!-- Options/!-->
+
+                  <button class="btn btn-sm mr-1 btn-outline-<%= student_invoice.color_class %> dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= student_invoice.readable_status %>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <% StudentInvoice::STATUS_OPTIONS.each do |status| %>
+                      <a class="dropdown-item" href="#"
+                      data-reflex="click->StudentInvoiceReflex#change_status"
+                      data-id="<%= student_invoice.id %>"
+                      data-status="<%= status[1] %>">
+                        <%= status[0] %>
+
+                      </a>
+                    <% end %>
+                  </div>
+                </div>
+
+                <!-- delete option/!-->
+
+                <%= link_to promo_classroom_student_student_invoice_path(promo, classroom, student, student_invoice), method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <i class='fas fa-times text-secondary'></i>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
