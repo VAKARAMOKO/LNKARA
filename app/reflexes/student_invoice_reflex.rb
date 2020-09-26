@@ -1,6 +1,15 @@
 # frozen_string_literal: true
 
-class StatusReflex < ApplicationReflex
+class StudentInvoiceReflex < ApplicationReflex
+
+  def change_status
+    student_invoice = StudentInvoice.includes(:checklist).find(element.dataset.id)
+    student_invoice.update(status: element.dataset.status)
+    morph "#student-#{student_invoice.student_id}", ApplicationController.render(
+      partial: 'students/student',
+      locals: { student: student_invoice.student}
+    )
+  end
   # Add Reflex methods in this file.
   #
   # All Reflex instances expose the following properties:

@@ -1,22 +1,31 @@
 class StudentInvoicesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_student_invoice, only: [:show, :edit, :update, :destroy]
+  before_action :set_student_invoice, only: [:update, :destroy]
 
 
   # POST /student_invoices
   def create
     promo = curent_user.promos.friendly.find(params[:promo_id])
     classroom = promo.classrooms.friendly.find(params[:classroom_id])
-    student = classroom.students.find(params[:student_id])
+    student = classroom.students.friendly.find(params[:student_id])
     student_invoice = student.student_invoices.new(student_invoice_params)
     student_invoice.status= "not-started"
     student_invoice.save
-    redirect_to promo_classroom_path(promon, classroom)
+    redirect_to promo_classroom_path(promo, classroom)
   end
+
+  def update
+     if @student_invoice.update(student_invoice_params)
+      redirect_to @student_invoice, notice: 'Checklist item was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
 
   # DELETE /student_invoices/1
   def destroy
-    promo = current_user.promots.friendly.find(params[:promo_id])
+    promo = current_user.promos.friendly.find(params[:promo_id])
     classroom = promo.classrooms.friendly.find(params[:classroom_id])
     student = classrom.students.friendly.find(params[student_id])
     student_invoice = student.student_invoices.find(params[:id])

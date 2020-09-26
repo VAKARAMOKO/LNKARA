@@ -1,11 +1,7 @@
 class Student < ApplicationRecord
   belongs_to :classroom
-  has_many :students, class_name: "student", foreign_key: "reference_id"
+  has_many :students
 
-
-  def new_invoice
-    student_invoices.build
-  end
 
   def percent_complete
     return 0 if total_items == 0

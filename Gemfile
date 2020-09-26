@@ -102,3 +102,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #search, http://expo.stimulusreflex.com/demos/tabular
 #http://expo.stimulusreflex.com/demos/permalink
 
+#Tarted stimulux reflex
+#https://docs.stimulusreflex.com/quickstart

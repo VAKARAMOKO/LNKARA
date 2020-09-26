@@ -4,7 +4,7 @@ class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   def index
-    @students = Student.all.order('created_at ASC')
+    @students = Student.all
   end
 
   def show
