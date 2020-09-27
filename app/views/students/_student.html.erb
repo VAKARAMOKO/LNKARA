@@ -3,7 +3,7 @@
 
 <% if student.persisted? %>
 
-<div class="student_items mt-2">
+<div class="student_items">
   <ul class="list-group">
     <li class="list-group-item d-flex justify-content-between hover:bg-gray-100">
       <!-- status + nom de eleves/!-->
@@ -13,17 +13,33 @@
      </div>
      <!-- versement+ reçu numerique/!-->
      <div class="versement justify-content-between bg-gray-200 rounded-full">
-      <div class="m-1">
-       <span class="total mr-2">30.000 Fr</span>
-       <span class="recu">reçu</span>
+       <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+        <button type="button" class="btn btn-outline-secondary">30.000Fr</button>
+
+        <div class="btn-group" role="group">
+          <button id="btnGroupDrop1"  class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Réçu Numérique
+          </button>
+          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <a class="dropdown-item" href="#">Réçu</a>
+            <a class="dropdown-item" href="#">Dropdown link</a>
+          </div>
+        </div>
       </div>
      </div>
      <!-- Operations de payment + status/!-->
      <!--dropdown/!-->
-     <div class="operations">
-       <span class="form-operation">
-        versement
-       </span>
+     <div class="dropdown">
+
+        <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Versement
+        </button>
+          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+          <a class="dropdown-item" href="#">Dropdown link</a>
+          <a class="dropdown-item" href="#">Dropdown link</a>
+          <a class="dropdown-item" href="#">Dropdown link</a>
+        </div>
+
        <!-- radiobutton status/!-->
 
      </div>

@@ -1,15 +1,17 @@
-<%= form_with(model: student_invoice, local: true) do |form| %>
-  <% if student_invoice.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(student_invoice.errors.count, "error") %> prohibited this student_invoice from being saved:</h2>
+<div class="dropdown-menu">
 
-      <ul>
-        <% student_invoice.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with(model: [promo, classroom, student, student_invoice], local: true, html:{ class: "px-2 py-2"}) do |form| %>
+    <% if @student_invoice.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(student_invoice.errors.count, "error") %> prohibited this student_invoice from being saved:</h2>
+
+        <ul>
+          <% student_invoice.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
   <div class="field">
     <%= form.label :solde %>
@@ -21,22 +23,17 @@
     <%= form.number_field :operation %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :invoice %>
     <%= form.text_field :invoice %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :status %>
-    <%= form.text_field :status %>
+    <%= form.text_field :status, placeholder:"Statuts" %>
   </div>
-
-  <div class="field">
-    <%= form.label :student_id %>
-    <%= form.text_field :student_id %>
-  </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+</div>

@@ -1,7 +1,7 @@
 module ApplicationHelper
 
     def title
-    base_title = "LNKARA EDUCATION"
+    base_title = "LNCLASSE EDUCATION"
     if @title.nil?
       base_title
     else
