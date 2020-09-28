@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :promos do          #notebooks
     resources :classrooms do    #pages
       resources :students do       #checklists
-        resources :student_invoices
+        resources :student_invoices #checklist_items
       end
     end
   end
