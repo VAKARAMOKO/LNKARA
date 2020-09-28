@@ -16,7 +16,7 @@ class StudentInvoicesController < ApplicationController
 
   def update
      if @student_invoice.update(student_invoice_params)
-      redirect_to @student_invoice, notice: 'Checklist item was successfully updated.'
+      redirect_to @student_invoice, notice: 'paiement was successfully updated.'
     else
       render :edit
     end
