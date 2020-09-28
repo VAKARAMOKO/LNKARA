@@ -22,6 +22,7 @@ class User < ApplicationRecord
 validates :email, uniqueness: true
 validates :code_school, presence: true
 validates :contact, uniqueness: true
+validates :email, :presence => true, :email => true
 
 #RELATIONS
 has_many :promos
