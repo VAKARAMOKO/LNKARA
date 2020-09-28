@@ -85,7 +85,6 @@ ActiveRecord::Schema.define(version: 2020_09_28_114956) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "contact"
     t.string "code_school"
-    t.index ["code_school"], name: "index_users_on_code_school", unique: true
     t.index ["contact"], name: "index_users_on_contact", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

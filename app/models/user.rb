@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
 #VALIDATIONS
 validates :email, uniqueness: true
-validates :code_school, uniqueness: true
+validates :code_school, presence: true
 validates :contact, uniqueness: true
 
 #RELATIONS
