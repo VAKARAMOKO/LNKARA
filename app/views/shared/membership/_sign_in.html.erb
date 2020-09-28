@@ -1,7 +1,7 @@
 <% content_for @title= "Connecter" %>
 
-<div class="container register-form">
-    <div class="form">
+<div class="col-8 col-md-4 col-lg-6 register-form">
+    <div class="form container ">
         <div class="note">
             <p>Connexion</p>
         </div>
@@ -9,7 +9,7 @@
                 <div class=" jsutigfy-content">
                     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                           <div class="form-group">
-                             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "chatln@gmail.com" %>
+                             <%= f.text_field :code_school, class: "form-control", placeholder: "Code DSPS" %>
                           </div>
                           <div class="form-group">
                             <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Your Password *" %>
