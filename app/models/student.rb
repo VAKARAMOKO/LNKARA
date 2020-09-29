@@ -1,6 +1,6 @@
 class Student < ApplicationRecord
   belongs_to :classroom
-  has_many :students
+  has_many :student_invoices
 
   #invoice
    def new_invoice
