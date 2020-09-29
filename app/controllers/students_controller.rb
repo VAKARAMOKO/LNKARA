@@ -8,7 +8,6 @@ class StudentsController < ApplicationController
   end
 
   def show
-
   end
 
   # GET /students/new
